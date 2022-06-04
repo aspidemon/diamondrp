@@ -1,5 +1,5 @@
 ## RAGEMP: Diamond RolePlay (0.3.7 and 1.1)
-![](https://gcdn.pbrd.co/images/yFaXdx6C64DG.png)
+![](https://cdn.discordapp.com/attachments/964767885270581298/982633572278083584/unknown.png)
 
 # Resources
 

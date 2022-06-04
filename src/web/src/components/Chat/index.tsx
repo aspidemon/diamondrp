@@ -62,7 +62,7 @@ class Chat extends Component<ChatProps, ChatState> {
     mp.events.register('cef:chat:can_activate', (toggle: boolean) => {
       this.setState({ canActivate: toggle });
     });
-    mp.events.register('cef:chat:params', (data: { heightChat: number, fontChat: number}) => {
+    mp.events.register('cef:chat:params', (data: { heightChat: number, fontChat: number }) => {
       this.setState({ heightChat: data.heightChat, fontChat: data.fontChat });
     });
   }
@@ -91,46 +91,46 @@ class Chat extends Component<ChatProps, ChatState> {
       '`': '&#x60;',
       '=': '&#x3D;'
     };
-    
+
     let textResult = String(str).replace(/[&<>"'`=\/]/gi, (s) => {
       return entityMap[s];
     }).split('').reduce((str, s) => {
       return str + (/[a-zA-z0-9а-яА-ЯЁё\!\@\#\$\%\^\&\*\(\)\{\}\,\.\/\_\+\№\;\:\?\\\<\>\`\-]/gi.test(s) ? s : ' ');
     }, '');
-		
-		var matchColors = /!\{#\w*\}/gi;
-		var match = textResult.match(matchColors);
-		if (match !== null) {
 
-			for(let i = 0; i < match.length; i++) {
-				let clr = match[i].replace(match[i], match[i].replace('!{', '').replace('}', ''));
-					textResult = textResult.replace(match[i], '<span style="color: ' + clr + '">');
-			}
-			
-			for(let i = 0; i < match.length; i++) {
-				textResult += '</span>';
-			}
-		}
-		
-		matchColors = /!\{\w*\}/gi;
-		match = textResult.match(matchColors);
-		if (match !== null) {
+    var matchColors = /!\{#\w*\}/gi;
+    var match = textResult.match(matchColors);
+    if (match !== null) {
 
-			for(let i = 0; i < match.length; i++) {
-				let clr = match[i].replace(match[i], match[i].replace('!{', '').replace('}', ''));
-					textResult = textResult.replace(match[i], '<span style="color: #' + clr + '">');
-			}
-			
-			for(let i = 0; i < match.length; i++) {
-				textResult += '</span>';
-			}
+      for (let i = 0; i < match.length; i++) {
+        let clr = match[i].replace(match[i], match[i].replace('!{', '').replace('}', ''));
+        textResult = textResult.replace(match[i], '<span style="color: ' + clr + '">');
+      }
+
+      for (let i = 0; i < match.length; i++) {
+        textResult += '</span>';
+      }
+    }
+
+    matchColors = /!\{\w*\}/gi;
+    match = textResult.match(matchColors);
+    if (match !== null) {
+
+      for (let i = 0; i < match.length; i++) {
+        let clr = match[i].replace(match[i], match[i].replace('!{', '').replace('}', ''));
+        textResult = textResult.replace(match[i], '<span style="color: #' + clr + '">');
+      }
+
+      for (let i = 0; i < match.length; i++) {
+        textResult += '</span>';
+      }
     }
 
     this.addMessage(textResult);
     const scrollHeight = this.messageList ? this.messageList.scrollHeight : 0;
     const height = this.messageList ? this.messageList.clientHeight : 0;
     const maxScrollTop = scrollHeight - height;
-    if(this.messageList) this.messageList.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+    if (this.messageList) this.messageList.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
   }
 
   sendMessage(value: string) {
@@ -257,17 +257,17 @@ class Chat extends Component<ChatProps, ChatState> {
           >
             {this.state.show
               ? this.state.messages
-                  .slice()
-                  .reverse()
-                  .map((item, key) => (
-                    <p
-                      className="chat-post say"
-                      key={key}
-                      dangerouslySetInnerHTML={{
-                        __html: item,
-                      }}
-                    ></p>
-                  ))
+                .slice()
+                .reverse()
+                .map((item, key) => (
+                  <p
+                    className="chat-post say"
+                    key={key}
+                    dangerouslySetInnerHTML={{
+                      __html: item,
+                    }}
+                  ></p>
+                ))
               : ''}
           </div>
           {this.state.active ? (

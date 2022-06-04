@@ -83,8 +83,8 @@ mp.events.add('casino.slots.client.start', (slotMachineId, chipsBalance) => {
   thisInfo.cameraPosition = mp.game.object.getObjectOffsetFromCoords(slotMachineMeta.position.x, slotMachineMeta.position.y, slotMachineMeta.position.z, slotMachineMeta.heading, 0, -1, 1.5);
   thisInfo.cameraPoint = mp.game.object.getObjectOffsetFromCoords(slotMachineMeta.position.x, slotMachineMeta.position.y, slotMachineMeta.position.z, slotMachineMeta.heading, 0, 0, 1.2);
 
-  camera.setCoord(thisInfo.cameraPosition.x, thisInfo.cameraPosition.y, thisInfo.cameraPosition.z);
-  camera.pointAtCoord(thisInfo.cameraPoint.x, thisInfo.cameraPoint.y, thisInfo.cameraPoint.z);
+  // camera.setCoord(thisInfo.cameraPosition.x, thisInfo.cameraPosition.y, thisInfo.cameraPosition.z);
+  // camera.pointAtCoord(thisInfo.cameraPoint.x, thisInfo.cameraPoint.y, thisInfo.cameraPoint.z);
 
   const sitPosition = mp.game.object.getObjectOffsetFromCoords(slotMachineMeta.position.x, slotMachineMeta.position.y, slotMachineMeta.position.z, slotMachineMeta.heading, 0, -0.8, 0.7);
   
